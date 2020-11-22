@@ -1,0 +1,88 @@
+.chatHeader{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 10px;
+    color: gray;
+}
+
+.chatHeaderHash{
+    font-size: 1.5em;
+    padding: 10px;
+}
+
+.chatHeaderLeft > h4{
+    display: flex;
+    align-items: center;
+}
+
+.chatHeaderRight > .MuiSvgIcon-root:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.chatHeaderLeft{
+    flex: 1;
+}
+
+.chat{
+    display: flex;
+    flex: 0.75;
+    flex-direction: column;
+    background-color: #363a3f;
+    height: 100vh;
+}
+
+.chatHeaderRight  {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chatHeaderSearch{
+    display: flex;
+    background-color: #2f3135;
+    padding: 3px;
+}
+
+.chatHeaderSearch > input {
+    background: transparent;
+    outline-width: 0;
+    border: none;
+    color: white;
+}
+
+.chatInput{
+    display: flex;
+    align-items: center;
+    background-color: gray;
+    color: white;
+    margin: 20px;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    border-top: 1px solid gray;
+    background-color: #474b53;
+}
+.chatInput > form > input {
+    background: transparent;
+    border: none;
+    outline-width: 0;
+    flex: 1;
+    font-size: large;
+    color: white;
+    padding: 15px;
+}
+.chatMessages{
+    flex: 1;
+}
+.chatInput > form {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline-width: 0;
+    display: flex;
+}
+
+.chatInputButton{
+    display: none;
+}

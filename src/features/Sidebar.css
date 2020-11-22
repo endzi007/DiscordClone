@@ -1,0 +1,123 @@
+.sidebar{
+    background-color: #2f3135;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex: 0.25;
+    justify-items: space-between;
+}
+
+.sidebarTop{
+    color: white;
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #26282c;
+    padding: 20px;
+    height: 10px;
+}
+
+.sidebarVoice{
+    display: flex;
+    flex-direction: row;
+    color: gray;
+    align-items: center;
+    border-top: 3px solid #26282c;
+}
+
+
+.sidebarVoiceInfo{
+    flex: 1;
+    justify-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.sidebarVoice> .MuiSvgIcon-root, h5 {
+    color: green;
+}
+.sidebarVoiceInfo > h5 {
+    padding: 0!important;
+    margin: 0!important;
+}
+
+.sidebarVoiceInfo > span {
+    font-size: 0.8rem;
+    padding: 0;
+    margin: 0;
+}
+
+.MuiSvgIcon-root{
+    padding: 5px;
+}
+
+.sidebarVoiceIcons > .MuiSvgIcon-root{
+    font-size: 1rem!important;
+}
+
+.sidebarVoiceIcons{
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebarChannels{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.sidebarChannelsHeader{
+    display: flex;
+    justify-content: space-between;
+    color: gray;
+    align-items: center;
+}
+
+.sidebarChannelsContent{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.sidebarAddChannel{
+    cursor: pointer;
+}
+.sidebarAddChannel:hover{
+    color: white;
+}
+
+.profileSection {
+    display: flex;
+    color: gray;
+    align-items: center;
+    border-top: 3px solid #26282c;
+}
+
+.profileSectionIcons > .MuiSvgIcon-root{
+    font-size: 0.8rem!important;
+}
+.profileSectionIcons{
+    display: flex;
+    flex-direction: column;
+}
+
+.profileSection > h6{
+    flex: 1;
+}
+
+.profileSection > .MuiAvatar-root{
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+}
+
+.sidebarChannelsList{
+    padding-top: 0!important;
+    margin-top: 0!important;
+}
+
+.sidebarChannel > h4{
+    padding: 0;
+    margin: 0;
+}
