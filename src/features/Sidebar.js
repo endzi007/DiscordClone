@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Sidebar.css";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import AddIcon from "@material-ui/icons/Add";
@@ -10,7 +10,35 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import MicIcon from '@material-ui/icons/Mic';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import { Avatar } from '@material-ui/core';
+import db, { auth } from "../app/firebase";
+import { useSelector } from 'react-redux';
+import { selectUser } from './userSlice';
+
 function Sidebar() {
+    const logOut = ()=>{
+        auth.signOut();
+    }
+    const currentUser = useSelector(selectUser);
+    const [channels, setChannels] = useState([]);
+    const handleAddChannel = ()=>{
+        let channelName = prompt("Enter channel name");
+        if (channelName) {
+            db.collection("channels").add({channelName});
+        } else {
+            console.log("didnt enter");
+        }
+    }
+
+    useEffect(()=>{
+        db.collection("channels").onSnapshot((snapshot)=>{
+            console.log("changed");
+            setChannels(snapshot.docs.map((doc)=>({
+                id: doc.id,
+                channel: doc.data()
+
+            })))
+        })
+    }, [])
     return (
         <div className="sidebar">
             <div className="sidebarTop">
@@ -23,13 +51,13 @@ function Sidebar() {
                         <ExpandMoreIcon />
                         <h4>Text Channels</h4>
                     </div>
-                    <AddIcon className="sidebarAddChannel" />
+                    <AddIcon onClick={handleAddChannel} className="sidebarAddChannel" />
                 </div>
                 <div className="sidebarChannelsList">
-                    <SidebarChannel />
-                    <SidebarChannel />
-                    <SidebarChannel />
-                    <SidebarChannel />
+                    {channels.map((ch)=>{
+                        console.log(ch)
+                        return <SidebarChannel key = {ch.id} id={ch.id} channel={ch.channel.channelName}  />
+                    })}
                 </div>
             </div>
             <div className="sidebarVoice">
@@ -45,8 +73,8 @@ function Sidebar() {
             </div>
             <div className="profileSection">
                 {/* avatar */}
-                <Avatar />
-                <h6>Enis Jašarović</h6>
+                <Avatar onClick={logOut}  src={currentUser.photo} />
+                <h6>{currentUser.displayName}</h6>
                 <div className="profileSectionIcons">
                     {/* microphone */}
                     <MicIcon />

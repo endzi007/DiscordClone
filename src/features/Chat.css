@@ -74,6 +74,7 @@
 }
 .chatMessages{
     flex: 1;
+    overflow-y: scroll;
 }
 .chatInput > form {
     flex: 1;
